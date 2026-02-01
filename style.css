@@ -1,0 +1,93 @@
+:root {
+    --bg-dark: #050202; /* Oscuridad absoluta */
+    --blood-red: #8a1c1c;
+    --glow-red: #ff1a1a;
+    --gold: #c5a059;
+    --parchment: #dcd0c0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-dark);
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: 'Crimson Text', serif;
+    background-image: radial-gradient(circle at center, #110101 0%, #050202 100%);
+}
+
+/* --- BLOQUEO --- */
+#pantalla-bloqueo {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 2s ease;
+}
+
+.lock-container { text-align: center; color: var(--gold); }
+.wax-seal-lock { font-size: 3rem; margin-bottom: 10px; text-shadow: 0 0 15px var(--blood-red); }
+
+#input-clave {
+    background: transparent; border: none; border-bottom: 2px solid var(--blood-red);
+    color: white; text-align: center; padding: 10px; font-size: 1.2rem; outline: none;
+}
+
+/* --- CONTENIDO --- */
+#contenido-secreto {
+    opacity: 0;
+    transition: opacity 2.5s ease-in;
+    display: none;
+}
+
+.main-container {
+    max-width: 450px; margin: 0 auto; padding: 40px 20px; text-align: center;
+}
+
+h1 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 4px; border-bottom: 1px solid var(--blood-red); display: inline-block; }
+
+/* CORAZÓN DE FUEGO */
+.heart-wrapper {
+    position: relative; width: 280px; height: 280px; margin: 40px auto;
+}
+
+.glowing-heart {
+    width: 80%;
+    filter: drop-shadow(0 0 20px var(--blood-red));
+    animation: heartbeat 3s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px var(--blood-red)); }
+    50% { transform: scale(1.06); filter: drop-shadow(0 0 45px var(--glow-red)); }
+}
+
+.label-orbit {
+    position: absolute; font-family: 'Cinzel', serif; font-size: 0.7rem; color: #fff;
+    text-shadow: 0 0 8px var(--glow-red);
+}
+.top-left { top: 10%; left: 0; } .top-right { top: 10%; right: 0; }
+.bottom-left { bottom: 10%; left: 0; } .bottom-right { bottom: 10%; right: 0; }
+
+/* PERGAMINO */
+.ancient-scroll {
+    background: var(--parchment); color: #2b1b17; padding: 35px 20px;
+    border-radius: 4px; position: relative; margin: 50px 0;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5); transform: rotate(-1deg);
+}
+
+.wax-seal {
+    position: absolute; top: -25px; left: 50%; transform: translateX(-50%);
+    width: 50px; height: 50px; background: var(--blood-red); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; color: white;
+    font-family: 'Cinzel'; border: 2px solid #300;
+}
+
+.handwritten { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--gold); }
+.signature { font-family: 'Great Vibes', cursive; font-size: 2rem; color: var(--blood-red); margin-top: 20px; }
+
+footer { margin-top: 60px; font-size: 0.7rem; color: #444; letter-spacing: 2px; }
