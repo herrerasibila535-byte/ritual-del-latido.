@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // CLAVE DE ACCESO (Cámbiala aquí)
-    const CLAVE_CORRECTA = "14/02/2023"; 
+    // CLAVE DE ACCESO: 25 de enero de este año (2026)
+const CLAVE_CORRECTA = "25/01/2026"; 
+
 
     window.intentarEntrar = function() {
         const input = document.getElementById('input-clave').value;
