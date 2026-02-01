@@ -105,4 +105,36 @@ h1 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 4px; bord
 .signature { font-family: 'Great Vibes', cursive; font-size: 2rem; color: var(--blood-red); margin-top: 15px; }
 
 footer { margin-top: 50px; font-size: 0.75rem; color: #555; letter-spacing: 2px; line-height: 1.5; }
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // CLAVE DE ACCESO: 25 de enero de 2026
+    const CLAVE_CORRECTA = "25/01/2026"; 
+
+    window.intentarEntrar = function() {
+        const input = document.getElementById('input-clave').value;
+        const pantalla = document.getElementById('pantalla-bloqueo');
+        const contenido = document.getElementById('contenido-secreto');
+        const musica = document.getElementById('bgMusic');
+
+        if (input === CLAVE_CORRECTA) {
+            pantalla.style.opacity = '0';
+            
+            setTimeout(() => {
+                pantalla.style.display = 'none';
+                contenido.style.display = 'block';
+                
+                setTimeout(() => {
+                    contenido.style.opacity = '1';
+                    musica.volume = 0.4;
+                    musica.play().catch(() => console.log("Música silenciada por el navegador"));
+                }, 100);
+            }, 1500);
+        } else {
+            const msgError = document.getElementById('mensaje-error');
+            msgError.innerText = "Esa cifra no abre este corazón.";
+            msgError.style.color = "#ff4d4d";
+        }
+    };
+});
+    
 
